@@ -6,6 +6,9 @@ require("./configure/db")
 const mainRouter=require("./Router/index")
 app.set('ejs','view engine')
 app.use("/api",mainRouter)
+app.get("/",(req,res)=>{
+    res.send("hello world")
+})
 app.listen(4000,()=>{
     console.log("server is working");
 })
