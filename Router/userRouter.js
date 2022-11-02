@@ -1,0 +1,11 @@
+const express=require("express")
+const usermodel=require("../model/userSchema")
+const userController=require("../controller/userController")
+const {uservalidate}=require("../middleware/user")
+const userRouter=express()
+userRouter.post("/add",uservalidate,userController.newuser)
+userRouter.get("/list",userController.userlist)
+userRouter.post("/update",uservalidate,userController.userUpadate)
+userRouter.get("/get/:id",userController.usergetbyId)
+userRouter.post("/login",userController.userlogin)
+module.exports=userRouter
